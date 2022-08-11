@@ -42,7 +42,7 @@ const ParseBibFile: NextPage = () => {
     const title = filterTitle?.trim().toLowerCase();
     if(title)
       fCitations = fCitations.filter(cit => cit.title?.trim().toLowerCase().indexOf(title) > -1);
-      
+
     setFilteredCitations(fCitations);
     console.log('filtered citations: ', author, fCitations);
   }
@@ -106,8 +106,8 @@ const ParseBibFile: NextPage = () => {
               >?</button>
             </div>
           <ul className="w-fit flex-row pt-2 text-left">
-                {filteredCitations?.map(ce => 
-                  <li key={ce['citation-key']} className="p-2 relative border" >
+                {filteredCitations?.map((ce, index) => 
+                  <li key={ce['citation-key'] + index} className="p-2 relative border" >
                     <div className="p-1">{combineAuthors(ce)} <span className="font-semibold">{extractYear(ce)}</span></div>
                     <div className="pl-1 italic text-sm">{ce.title}</div>
                     <button className="absolute right-0 top-0 mr-2 mt-2 ml-5 bg-white py-1 px-2 border border-gray-100 rounded-md shadow-sm leading-4 text-gray-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
