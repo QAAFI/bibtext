@@ -67,6 +67,8 @@ const ParseBibFile: NextPage = () => {
   function extractYear(citeData){
     const dates = citeData.issued ?? citeData.published; 
     //date-parts is an array itself
+    if(!dates)return '';
+    
     const arr = dates["date-parts"];
     if(!arr) return '';
     if(arr.length == 0) return '';
