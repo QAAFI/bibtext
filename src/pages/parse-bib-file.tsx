@@ -70,7 +70,7 @@ const ParseBibFile: NextPage = () => {
     const arr = dates["date-parts"];
     if(!arr) return '';
     if(arr.length == 0) return '';
-    if(arr[0].length == 1)
+    if(arr[0].length > 0)
       return '(' + arr[0][0] + ')';
     return '';
   }
